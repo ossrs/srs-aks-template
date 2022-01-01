@@ -1,6 +1,6 @@
 # srs-aks-template
 
-[![](https://github.com/ossrs/srs-aks-template/actions/workflows/alibabacloud.yml/badge.svg)](https://github.com/ossrs/srs-aks-template/actions/workflows/alibabacloud.yml)
+[![](https://github.com/ossrs/srs-aks-template/actions/workflows/azure-kubernetes-service.yml/badge.svg)](https://github.com/ossrs/srs-aks-template/actions/workflows/azure-kubernetes-service.yml)
 
 Template repository for deploying SRS to [AKS(Azure Kubernetes Service)](https://docs.microsoft.com/en-us/azure/aks/).
 
