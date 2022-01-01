@@ -8,23 +8,23 @@ Template repository for deploying SRS to [AKS(Azure Kubernetes Service)](https:/
 
 **Step 1:** Create AKS cluster and user:
 
-1. Create a K8s cluster by [ACK](https://cs.console.aliyun.com), check by command `kubectl get namespace`
-1. Create a new [RAM user](https://ram.console.aliyun.com/users), with access <kbd>AliyunCSFullAccess</kbd>
-1. Click the <kbd>ACK</kbd> > <kbd>Authorize</kbd> > <kbd>Modify Permissions</kbd> to set user as Administrators.
+1. Create a [subscription](https://portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and [resource group](https://portal.azure.com/?quickstart=true#blade/HubsExtension/BrowseResourceGroups).
+1. Create a K8s cluster by [AKS](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal), check by command `kubectl get namespace`
+1. Create a new [CREDENTIALS](https://docs.microsoft.com/en-us/azure/aks/kubernetes-action#create-a-service-principal) with `subscription` and `resource group`.
 
-**Step 2:** Click the <kbd>Use this template</kbd> to create your repository, then set the [secrets](https://github.com/winlinvip/srs-aks-template/settings/secrets/actions):
+**Step 2:** Click the <kbd>Use this template</kbd> to create your repository, then set the [secrets](https://github.com/ossrs/srs-aks-template/settings/secrets/actions):
 
-1. `ACCESS_KEY_ID` is the AccessKey ID of [RAM user](https://ram.console.aliyun.com/users).
-1. `ACCESS_KEY_SECRET` is the AccessKey Secret of [RAM user](https://ram.console.aliyun.com/users).
-1. `ACK_CLUSTER_ID` is the ACK K8s cluster ID at <kbd>ACK</kbd> > <kbd>Basic Information</kbd>.
+1. `AZURE_CREDENTIALS` is the [CREDENTIALS](https://docs.microsoft.com/en-us/azure/aks/kubernetes-action#create-a-service-principal).
+1. `RESOURCE_GROUP` is the [resource group](https://portal.azure.com/?quickstart=true#blade/HubsExtension/BrowseResourceGroups).
+1. `CLUSTER_NAME` is the name of [AKS](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal) cluster.
 
-**Step 3:** Run <kbd>Actions</kbd> to deploy to your K8s, for example, if your external IP is `28.170.32.118`:
+**Step 3:** Run <kbd>Actions</kbd> to deploy to your K8s, for example, if your external IP is `52.149.197.10`:
 
-* Website is http://28.170.32.118:8080
-* Publish RTMP to rtmp://28.170.32.118/live/livestream
-* Play RTMP from rtmp://28.170.32.118/live/livestream
-* Play HTTP-FLV from http://28.170.32.118:8080/live/livestream.flv
-* Play HLS from http://28.170.32.118:8080/live/livestream.m3u8
+* Website is http://52.149.197.10:8080
+* Publish RTMP to rtmp://52.149.197.10/live/livestream
+* Play RTMP from rtmp://52.149.197.10/live/livestream
+* Play HTTP-FLV from http://52.149.197.10:8080/live/livestream.flv
+* Play HLS from http://52.149.197.10:8080/live/livestream.m3u8
 
 Try to motify the [srs.yaml](srs.yaml), then push to your repository, your K8s will be updated automatically.
 
