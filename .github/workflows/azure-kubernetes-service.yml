@@ -1,0 +1,36 @@
+
+name: Deploy SRS to AKS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  k8s:
+    name: release-k8s
+    runs-on: ubuntu-20.04
+    #if: github.event.repository.name != 'srs-aks-template'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Set AKS context
+      - name: Gets K8s context
+        uses: azure/aks-set-context@v1
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+            resource-group: ${{ secrets.RESOURCE_GROUP }}
+            cluster-name: ${{ secrets.CLUSTER_NAME }}
+        id: login
+
+      # Deploy SRS image
+      - name: Deploy SRS image
+        run: |-
+          kubectl cluster-info
+          #kubectl apply -f srs.yaml
+          #kubectl get deploy/srs-deployment
+          #kubectl get svc/srs-service
+          #EIP=$(kubectl get svc/srs-service |grep srs-service |awk '{print $4}')
+          #echo "Website:"
+          #echo "  http://${EIP}:8080"
