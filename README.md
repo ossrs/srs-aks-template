@@ -1,5 +1,7 @@
 # srs-aks-template
 
+**IMPORTANT NOTE**: This repository is depreacated and archived, please use [srs-cdk](https://github.com/ossrs/srs-cdk) instead. CDK is the future of default and recommended deployment for SRS and Oryx.
+
 ![](http://ossrs.net/gif/v1/sls.gif?site=github.com&path=/tmpl/k8s/aks/ossrs/srs-aks-template)
 [![](https://github.com/ossrs/srs-aks-template/actions/workflows/azure-kubernetes-service.yml/badge.svg)](https://github.com/ossrs/srs-aks-template/actions/workflows/azure-kubernetes-service.yml)
 
